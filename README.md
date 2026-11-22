@@ -2,8 +2,8 @@
 
 A responsive, single-user task dashboard built for the FocusBoard trainee assessment. Frontend only: no backend, login or APIs.
 
-- **Live app:** https://YOUR-APP.vercel.app  <!-- add after deploying -->
-- **GitHub:** https://github.com/YOUR-USERNAME/focusboard  <!-- add after pushing -->
+- **Live app:** https://focusboard-jet.vercel.app  <!-- add after deploying -->
+- **GitHub:** https://github.com/GayathriBajjuriTech/focusboard  <!-- add after pushing -->
 
 ## Tech stack
 React 18, Vite, JavaScript (ES6+), plain CSS, React Hooks, localStorage, Lucide React icons.
