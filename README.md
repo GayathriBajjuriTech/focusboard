@@ -2,8 +2,14 @@
 
 A responsive, single-user task dashboard built for the FocusBoard trainee assessment. Frontend only: no backend, login or APIs.
 
-- **Live app:** https://focusboard-jet.vercel.app  <!-- add after deploying -->
-- **GitHub:** https://github.com/GayathriBajjuriTech/focusboard  <!-- add after pushing -->
+- **Live app:** https://focusboard-jet.vercel.app
+- **GitHub:** https://github.com/GayathriBajjuriTech/focusboard
+
+## Screenshots
+
+| Desktop (1440 px) | Mobile (390 px) |
+| --- | --- |
+| ![Desktop](screenshots/desktop.png) | ![Mobile](screenshots/mobile.png) |
 
 ## Tech stack
 React 18, Vite, JavaScript (ES6+), plain CSS, React Hooks, localStorage, Lucide React icons.
@@ -13,7 +19,7 @@ React 18, Vite, JavaScript (ES6+), plain CSS, React Hooks, localStorage, Lucide 
 - Status updates (To do, In progress, Completed) from a dropdown on each task
 - Case-insensitive title search, status tabs and priority filter that work together, plus Reset filters
 - Statistics (total, in progress, completed, completion %) calculated from task data, with zero-task handling
-- Three-slide Focus Notes carousel: previous/next (circular), clickable indicators, active-slide highlight
+- Three-slide Focus Notes carousel with the Figma content: previous/next (circular), clickable indicators, active-slide highlight
 - localStorage persistence; sample data (7 tasks) loads only when nothing valid is saved
 - Responsive at 390px, 768px and 1440px; off-canvas navigation on small screens
 - Accessibility: semantic landmarks, labelled fields, visible focus rings, keyboard-operable dialogs (Esc closes), status shown as text plus icon
@@ -41,10 +47,10 @@ I used React hooks only (`useState`, `useMemo`), with no extra library, because 
 - **Single source of truth:** `App.jsx` owns the full `tasks` array through `useLocalStorage('focusboard_tasks', sampleTasks)`. Cards, stats, filters and the form all read from it.
 - **Predictable mutations:** add, edit, status change and delete use `setTasks(prev => ...)` with `map`, `filter` and spread, never mutating state directly. Edit keeps the original `id`.
 - **Derived values:** the statistics, search results, tab counts and filtered list are computed on each render from `tasks` plus the search/status/priority state. Filters never change the stored data.
-- **Carousel state:** `FocusNotes` keeps the active slide index; slide, dots and counter all come from that one value.
+- **Carousel state:** `FocusNotes` keeps the active slide index; slide, indicators and counter all come from that one value.
 - **localStorage:** the hook reads and parses saved JSON once at start-up, falling back to sample data only if nothing valid exists, and writes the latest tasks in an effect. Both steps are wrapped in try/catch.
 
 ## Known limitations
 - Sidebar items other than Overview, the notification bell and the profile avatar are visual placeholders.
-- Focus Notes text and exact styling should be matched to the Figma frames (I could not open Figma while building the first version).
+- The header, sidebar, stat cards and Focus Notes carousel follow the Figma frames. The task rows, create-task form and mobile layout follow my own design and are not matched exactly to Figma.
 - Data is per-browser (localStorage) and not synced.
